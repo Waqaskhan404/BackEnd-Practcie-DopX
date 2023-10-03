@@ -27,13 +27,32 @@ app.get("/",(req,res)=>{
 // })
 
 // use Params 
-app.get('/api/product/:productId',(req,res)=>{
-    const {productId}=req.params;
-    const singleProduct=phone.find((product)=> {return product.id===Number(productId)})
-    console.log(singleProduct)
-    res.json(singleProduct)
+// app.get('/api/product/:productId',(req,res)=>{
+//     const {productId}=req.params;
+//     const singleProduct=phone.find((product)=> {return product.id===Number(productId)})
+//     console.log(singleProduct)
+//     res.json(singleProduct)
 
-})
+// })
+
+// Query String 
+
+// url for Query String ===    http://localhost:3000/api/v1/query?search=s&limit=2
+
+app.get('/api/v1/query',(req,res)=>{
+   console.log(req.query);
+   let sortPhone=[...phone];
+   let {search,limit}=req.query;
+   if(search){
+    sortPhone=sortPhone.filter((product)=>{
+       return product.name.toLowerCase().startsWith(search)
+    })
+   }
+    res.json(sortPhone)
+
+ })
+
+
 
 
 app.listen(3000,()=>{

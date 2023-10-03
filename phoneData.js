@@ -46,6 +46,22 @@ const phones = [
             price : "8999 SEK",
             imageUrl : "https://www.theinquirer.net/w-images/d1417a96-037b-41d8-9260-8c6dadc4ad78/1/JrASRUyl-300x500.jpg",
             readmore : "https://www.oneplus.com/se/6"
+          },
+          {
+            id: 7,
+            date : "10-08-2018",
+            name: "OnePlus 7T",
+            price : "8999 SEK",
+            imageUrl : "https://www.theinquirer.net/w-images/d1417a96-037b-41d8-9260-8c6dadc4ad78/1/JrASRUyl-300x500.jpg",
+            readmore : "https://www.oneplus.com/se/6"
+          }
+          ,{
+            id: 8,
+            date : "10-08-2018",
+            name: "OnePlus 8T",
+            price : "8999 SEK",
+            imageUrl : "https://www.theinquirer.net/w-images/d1417a96-037b-41d8-9260-8c6dadc4ad78/1/JrASRUyl-300x500.jpg",
+            readmore : "https://www.oneplus.com/se/6"
           }
         ]
 
