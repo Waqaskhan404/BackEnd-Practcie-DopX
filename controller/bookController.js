@@ -18,6 +18,10 @@ const books=[
 //     res.send("<h1>Home</h1>")
 // })
 
+const homeResponse=(req,res)=>{
+    res.send("<h1>Welcome To the App</h1>");
+};
+
 // Get All Books || Get Request
 const getBook=(req,res)=>{
     res.json(books);
@@ -71,4 +75,4 @@ const deleteBook=(req,res)=>{
 };
 
 
-module.exports={getBook,createBook,updateBook,deleteBook};
+module.exports={homeResponse,getBook,createBook,updateBook,deleteBook};
