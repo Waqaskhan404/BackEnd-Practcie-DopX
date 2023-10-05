@@ -1,3 +1,14 @@
+const express=require("express");
+
+
+
+const app = express();
+// app.use(express.urlencoded({extended:false}))
+app.use(express.json())
+
+
+
+
 const books=[
     {
         id:1,
@@ -19,13 +30,13 @@ const books=[
 // })
 
 // Get All Books || Get Request
-const getBook=(req,res)=>{
+app.get("/books",(req,res)=>{
     res.json(books);
-};
+});
 
 
 // Add New Book || Post Request
-const createBook=(req,res)=>{
+app.post("/books",(req,res)=>{
     const title=req.body.title;
     const author=req.body.author;
     const newItem={
@@ -37,11 +48,12 @@ const createBook=(req,res)=>{
 
     res.status(201);
     res.send(books)
-};
+}
+);
 
 // Update Book ||   Put Request
 
-const updateBook=(req,res)=>{
+app.put("/books/:id",(req,res)=>{
     const id=parseInt(req.params.id);
     console.log(id);
     const updatedBook=req.body;
@@ -53,11 +65,11 @@ const updateBook=(req,res)=>{
     else{
         res.status(404).res.json({error:"Book not found"});
     }
-};
+})
 
 // Delete Book || Delete Request
 
-const deleteBook=(req,res)=>{
+app.delete("/books/:id",(req,res)=>{
     const id=parseInt(req.params.id);
     const index=books.findIndex(book=>book.id===id);
     if(index!==-1){
@@ -68,7 +80,14 @@ const deleteBook=(req,res)=>{
     else{
         res.status(404).res.json({error:"Book not found"});
     }
-};
+})
 
 
-module.exports={getBook,createBook,updateBook,deleteBook};
+
+
+
+
+
+app.listen(3000,(req,res)=>{
+    console.log("Server is running on port 3000");
+})
